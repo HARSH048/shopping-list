@@ -1,0 +1,26 @@
+.input-item {
+  border: none;
+  border-bottom: 1px solid #000; /* or any color */
+  outline: none; /* removes default blue border on focus */
+  font-size: 16px;
+  margin-top: 50px;
+  width: 300px;
+  padding: 1rem;
+  background: transparent;
+}
+
+.add-item-button {
+    width: 90px;
+    height: 40px;
+    margin-left: 10px;
+    background-color: blue;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 1.5px 1.5px grey;
+}
+
+.add-item-button:hover {
+    box-shadow: none;
+}
+

@@ -1,0 +1,16 @@
+.item-wrapper {
+    display: flex;
+    width: 100%;
+    /* margin-bottom: 20px; */
+    justify-content: space-around;
+}
+
+.item-name {
+    flex-basis: 80%;
+    font-size: large;
+}
+
+.item-quantity {
+    font-size: larger;
+    color: rgb(139, 133, 242);
+}

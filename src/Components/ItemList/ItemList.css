@@ -1,0 +1,26 @@
+.item-list-wrapper{
+    width: 100%;
+}
+
+
+.item-list{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.add-quantity {
+    margin-left: 0px;
+    margin-right: 30px;
+   background-color: blue;
+   color: white;
+}
+
+.change-quantity {
+    padding: 0.3rem;
+    border-radius: 100%;
+}
+
+.remove-quantity {
+   background-color: grey;
+   color: white;
+}
