@@ -4,41 +4,24 @@ import InputItem from "../InputItem/InputItem";
 import ItemList from "../ItemList/ItemList";
 import "./ShoppingList.css";
 import itemReducer from "../../reducer/itemReducer";
+import {
+  dispatchContext,
+  shoppingItemsContext,
+} from "../../context/shoppingContext";
 
 export default function ShoppingList() {
   const [shoppingItems, dispatch] = useReducer(itemReducer, []);
-
-  function addItem(name) {
-    dispatch({
-      type: "add_item",
-      name,
-    });
-  }
-
-  function handleAddQuantity(id) {
-    dispatch({
-      type: "increment_quantity",
-      id,
-    });
-  }
-
-  function handleMinusQuantity(id) {
-    dispatch({
-      type: "decrement_quantity",
-      id,
-    });
-  }
   return (
     <>
       <Header />
-      <div className="shopping-list">
-        <InputItem addItem={addItem} />
-        <ItemList
-          items={shoppingItems}
-          handleAddQuantity={handleAddQuantity}
-          handleMinusQuantity={handleMinusQuantity}
-        />
-      </div>
+      <shoppingItemsContext.Provider value={shoppingItems}>
+        <dispatchContext.Provider value={dispatch}>
+          <div className="shopping-list">
+            <InputItem/>
+            <ItemList/>
+          </div>
+        </dispatchContext.Provider>
+      </shoppingItemsContext.Provider>
     </>
   );
 }

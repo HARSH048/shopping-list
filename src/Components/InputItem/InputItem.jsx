@@ -2,7 +2,9 @@ import "./InputItem.css";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import { showSucess } from "../../utils/showToast";
-export default function InputItem({ addItem }) {
+import { useContext } from "react";
+import { dispatchContext } from "../../context/shoppingContext";
+export default function InputItem() {
   const {
     register,
     handleSubmit,
@@ -11,9 +13,14 @@ export default function InputItem({ addItem }) {
     reset
   } = useForm();
 
+  const dispatch  = useContext(dispatchContext)
+
   const handleAddClick = () => {
     showSucess("Successfully Add Item... "); // Display success toast
-    addItem(getValues("item")); // Add the item
+    dispatch({
+      name: getValues("item"),
+      type: "add_item",
+    }) // Add the item
     reset({
       data: "item"
     })
